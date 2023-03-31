@@ -2,11 +2,13 @@ package br.univille.projfabsoft2023.entity;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -19,7 +21,34 @@ public class Cliente {
     private String nome;
     @Temporal(value = TemporalType.DATE)
     private Date dataNascimento;
+    @Column(length = 1000)
+    private String endereco;
+    private String telefone;
+    private String email;
 
+    //Associação MUITOS para UM
+    @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.MERGE})
+    private Cidade cidade;
+
+    
+    public String getEndereco() {
+        return endereco;
+    }
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+    public String getTelefone() {
+        return telefone;
+    }
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
+    }
     public long getId() {
         return id;
     }
@@ -37,6 +66,12 @@ public class Cliente {
     }
     public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
+    }
+    public Cidade getCidade() {
+        return cidade;
+    }
+    public void setCidade(Cidade cidade) {
+        this.cidade = cidade;
     }
     
 }
