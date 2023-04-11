@@ -3,11 +3,13 @@ package br.univille.projfabsoft2023.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import br.univille.projfabsoft2023.entity.Cliente;
 import br.univille.projfabsoft2023.repository.ClienteRepository;
 import br.univille.projfabsoft2023.service.ClienteService;
 
+@Service
 public class ClienteServiceImpl 
         implements ClienteService{
 
