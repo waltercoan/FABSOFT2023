@@ -5,4 +5,8 @@ import br.univille.projfabsoft2023.entity.Cliente;
 
 public interface ClienteService {
     List<Cliente> getAll();
+
+    void save(Cliente cliente);
+
+
 }
