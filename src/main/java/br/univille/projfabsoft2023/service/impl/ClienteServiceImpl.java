@@ -26,6 +26,11 @@ public class ClienteServiceImpl
      * git push
      */
 
+    @Override
+    public void save(Cliente cliente) {
+        repository.save(cliente);
+    }
+
     
     
 }
