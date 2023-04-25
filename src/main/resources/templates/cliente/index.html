@@ -17,6 +17,7 @@
                         <th>Endereço</th>
                         <th>Telefone</th>
                         <th>E-mail</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -26,6 +27,8 @@
                         <td th:text="${umCliente.endereco}"></td>
                         <td th:text="${umCliente.telefone}"></td>
                         <td th:text="${umCliente.email}"></td>
+                        <td><a class="btn btn-secondary"
+                            th:href="@{'/cliente/alterar/' + ${umCliente.id }}">Alterar</a></td>
                     </tr>
                 </tbody>
             </table>

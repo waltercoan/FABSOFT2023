@@ -3,6 +3,7 @@ package br.univille.projfabsoft2023.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
@@ -35,6 +36,14 @@ public class ClienteController {
 
         clienteService.save(cliente);
         return new ModelAndView("redirect:/cliente");
+    }
+
+    @GetMapping("/alterar/{id}")
+    public ModelAndView alterar(@PathVariable("id") 
+                            Cliente cliente){
+        
+        return new ModelAndView("cliente/form", 
+                                    "cliente",cliente);
     }
 
 
