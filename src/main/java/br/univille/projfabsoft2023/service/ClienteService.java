@@ -8,5 +8,7 @@ public interface ClienteService {
 
     void save(Cliente cliente);
 
+    void delete(long id);
+
 
 }

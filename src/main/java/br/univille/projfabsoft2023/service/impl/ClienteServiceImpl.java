@@ -31,6 +31,11 @@ public class ClienteServiceImpl
         repository.save(cliente);
     }
 
+    @Override
+    public void delete(long id) {
+        repository.deleteById(id);
+    }
+
     
     
 }

@@ -45,7 +45,12 @@ public class ClienteController {
         return new ModelAndView("cliente/form", 
                                     "cliente",cliente);
     }
-
+    @GetMapping("/remover/{id}")
+    public ModelAndView remover (@PathVariable("id") long id){
+        
+        clienteService.delete(id);
+        return new ModelAndView("redirect:/cliente");
+    }
 
 
 
