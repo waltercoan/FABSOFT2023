@@ -1,5 +1,7 @@
 package br.univille.projfabsoft2023.controller;
 
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import br.univille.projfabsoft2023.entity.Cliente;
+import br.univille.projfabsoft2023.service.CidadeService;
 import br.univille.projfabsoft2023.service.ClienteService;
 
 @Controller
@@ -17,6 +20,8 @@ public class ClienteController {
     
     @Autowired
     private ClienteService clienteService;
+    @Autowired
+    private CidadeService cidadeService;
 
     @GetMapping
     public ModelAndView index(){
@@ -28,8 +33,13 @@ public class ClienteController {
     @GetMapping("/novo")
     public ModelAndView novo(){
         var cliente = new Cliente();
+        var listaCidades = cidadeService.getAll();
+        HashMap<String,Object> dados = new HashMap<>();
+
+        dados.put("cliente",cliente);
+        dados.put("listaCidades",listaCidades);
         return new ModelAndView("cliente/form", 
-                                "cliente",cliente);
+                                dados);
     }
     @PostMapping(params = "form")
     public ModelAndView save(Cliente cliente){
@@ -41,9 +51,12 @@ public class ClienteController {
     @GetMapping("/alterar/{id}")
     public ModelAndView alterar(@PathVariable("id") 
                             Cliente cliente){
-        
-        return new ModelAndView("cliente/form", 
-                                    "cliente",cliente);
+        var listaCidades = cidadeService.getAll();
+        HashMap<String,Object> dados = new HashMap<>();
+
+        dados.put("cliente",cliente);
+        dados.put("listaCidades",listaCidades);
+        return new ModelAndView("cliente/form",dados);
     }
     @GetMapping("/remover/{id}")
     public ModelAndView remover (@PathVariable("id") long id){
