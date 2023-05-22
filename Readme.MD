@@ -7,7 +7,6 @@ Objetivo deste projeto é capacitar os alunos da disciplina de Fábrica de Softw
 ![Diagrama de Entidades](/diagramas/diagramaentidades.png)
 
 
-[Link]()
 ## Associação Muitos para Um (Cliente e Cidade)
 1. A entidade Cliente possui uma associação @ManyToOne para a entidade Cidade [Link](https://github.com/waltercoan/FABSOFT2023/blob/main/src/main/java/br/univille/projfabsoft2023/entity/Cliente.java)
 2. Criar o repositório para a classe cidade [Link](https://github.com/waltercoan/FABSOFT2023/blob/main/src/main/java/br/univille/projfabsoft2023/repository/CidadeRepository.java)
@@ -18,3 +17,6 @@ Objetivo deste projeto é capacitar os alunos da disciplina de Fábrica de Softw
 7. No método novo, executar o método getAll() do serviço da Cidade para obter a lista de Cidades, construir um objeto HashMap e incluir a instância do objeto Cliente e a lista de cidades
 8. Alterar a tela do formulário do cliente para incluir um TAG Select para mostrar a lista de Cidades [Link](https://github.com/waltercoan/FABSOFT2023/blob/main/src/main/resources/templates/cliente/form.html)
 9. No método alterar, executar o método getAll() do serviço da Cidade para obter a lista de Cidades, construir um objeto HashMap e incluir a instância do objeto Cliente e a lista de cidades
+
+## Authenticação usando Azure AD
+[Documentação](https://learn.microsoft.com/pt-br/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory)
