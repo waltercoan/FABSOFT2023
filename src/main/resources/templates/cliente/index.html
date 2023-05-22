@@ -28,7 +28,7 @@
                         <td th:text="${umCliente.endereco}"></td>
                         <td th:text="${umCliente.telefone}"></td>
                         <td th:text="${umCliente.email}"></td>
-                        <td th:text="${umCliente.cidade.nome}"></td>
+                        <td th:text="${umCliente.cidade?.nome}"></td>
                         <td><a class="btn btn-secondary"
                             th:href="@{'/cliente/alterar/' + ${umCliente.id }}">Alterar</a>
                             <button class="btn btn-danger js-delete"
