@@ -3,6 +3,7 @@ package br.univille.projfabsoft2023.controller;
 import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,7 @@ import br.univille.projfabsoft2023.service.ClienteService;
 
 @Controller
 @RequestMapping("/cliente")
+@PreAuthorize("hasAuthority('APPROLE_user') or hasAuthority('APPROLE_admin')")
 public class ClienteController {
     
     @Autowired

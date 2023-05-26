@@ -2,6 +2,8 @@ package br.univille.projfabsoft2023.controller;
 
 import java.util.HashMap;
 
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +18,8 @@ public class HomeController {
         /*HashMap<String, String> map = new HashMap<>();
         map.put("apelido","valor");
         map.put("nome","zezinho");*/
-        return new ModelAndView("home/index");
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        String currentPrincipalName = authentication.getName();
+        return new ModelAndView("home/index", "currentuser",currentPrincipalName);
     }
 }

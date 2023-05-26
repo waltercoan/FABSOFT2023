@@ -7,7 +7,7 @@
     <body>
         <nav th:replace="layout :: menu">(menu)</nav>
         <main class="container">
-            
+            Usuário logado: <h4 th:text="${currentuser}"></h4>
         </main>
 
         <div th:include="layout :: footer">(footer)</div>
