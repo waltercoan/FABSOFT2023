@@ -74,5 +74,13 @@ public class Carro {
         this.dono = dono;
     }
 
+    public List<Manutencao> getListaHistoricoManutencoes() {
+        return listaHistoricoManutencoes;
+    }
+
+    public void setListaHistoricoManutencoes(List<Manutencao> listaHistoricoManutencoes) {
+        this.listaHistoricoManutencoes = listaHistoricoManutencoes;
+    }
+
     
 }
