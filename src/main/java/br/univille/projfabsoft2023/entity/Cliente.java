@@ -11,6 +11,9 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -20,6 +23,9 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @Column(length = 600)
+    @Size(min = 1, max = 40,message = "Tamanho do campo entre 1 e 40")
+    @NotBlank(message = "Campo nome não pode ser em branco")
+    
     private String nome;
     @Temporal(value = TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
@@ -28,7 +34,18 @@ public class Cliente {
     private String endereco;
     private String telefone;
     private String email;
+    @Pattern(regexp = "(\\d){3}\\.?\\1{3}\\.?\\1{3}-?\\1{2}",
+            flags = Pattern.Flag.CANON_EQ,
+            message = "Formato do campo CPF não é válido")
+    private String CPF;
+    
 
+    public String getCPF() {
+        return CPF;
+    }
+    public void setCPF(String cPF) {
+        CPF = cPF;
+    }
     //Associação MUITOS para UM
     @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.MERGE})
     private Cidade cidade;

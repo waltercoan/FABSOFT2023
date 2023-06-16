@@ -2,9 +2,12 @@ package br.univille.projfabsoft2023.controller;
 
 import java.util.HashMap;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -44,8 +47,12 @@ public class ClienteController {
                                 dados);
     }
     @PostMapping(params = "form")
-    public ModelAndView save(Cliente cliente){
+    public ModelAndView save(@Valid Cliente cliente,BindingResult bindingResult){
 
+        if(bindingResult.hasErrors()){
+            return new ModelAndView("cliente/form","cliente",cliente);
+        }
+        
         clienteService.save(cliente);
         return new ModelAndView("redirect:/cliente");
     }
