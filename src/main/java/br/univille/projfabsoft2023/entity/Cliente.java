@@ -25,7 +25,6 @@ public class Cliente {
     @Column(length = 600)
     @Size(min = 1, max = 40,message = "Tamanho do campo entre 1 e 40")
     @NotBlank(message = "Campo nome não pode ser em branco")
-    
     private String nome;
     @Temporal(value = TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
