@@ -37,7 +37,8 @@ public class Cliente {
             flags = Pattern.Flag.CANON_EQ,
             message = "Formato do campo CPF não é válido")
     private String CPF;
-    
+    private String foto;
+
 
     public String getCPF() {
         return CPF;
@@ -91,6 +92,12 @@ public class Cliente {
     }
     public void setCidade(Cidade cidade) {
         this.cidade = cidade;
+    }
+    public String getFoto() {
+        return foto;
+    }
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
     
 }
